@@ -1,16 +1,17 @@
 import React from 'react';
-import Home from "./components/Home.jsx";
-import About from "./components/About.jsx";
-import Contact from "./components/Contact.jsx";
-import Services from "./components/Services.jsx";
+import Header from "./components/layouts/Header.jsx";
+import Footer from "./components/layouts/Footer.jsx";
+import RoutesIndex from "./components/layouts/RoutesIndex.jsx";
+import {BrowserRouter} from "react-router-dom";
 
 const App = () => {
     return (
         <>
-            <Home />
-            <About />
-            <Contact />
-            <Services />
+            <BrowserRouter>
+                <Header/>
+                <RoutesIndex/>  
+                <Footer/>
+            </BrowserRouter> 
         </>
     );
 };
