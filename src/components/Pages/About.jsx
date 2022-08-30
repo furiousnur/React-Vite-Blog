@@ -1,10 +1,15 @@
 import React from 'react';
+import HeroSection from "../layouts/HeroSection.jsx";
 
 const About = () => {
+    const data = {
+        name: "Nur Alam",
+        image: "../../../public/images/about1.svg"
+    }
     return (
-        <div>
-            <h1>About</h1>
-        </div>
+        <>
+            <HeroSection {...data}/>
+        </>
     );
 };
 

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import {Button} from "../style/Button.jsx"; 
 // import { useGlobalContext } from "../context";
 
-const HeroSection = () => {
+const HeroSection = ({name, image}) => { 
     // const { name, image } = useGlobalContext();
 
     return (
@@ -12,7 +12,7 @@ const HeroSection = () => {
             <div className="container grid grid-two-column">
                 <div className="section-hero-data">
                     <p className="hero-top-data">THIS IS ME</p>
-                    <h1 className="hero-heading">React Blog</h1>
+                    <h1 className="hero-heading">{name}</h1>
                     {/*<h1 className="hero-heading">{name}</h1>*/}
                     <p className="hero-para">
                         I'm {name}. A Full stack Developer, youtuber and freelancer. A Full
@@ -26,7 +26,7 @@ const HeroSection = () => {
                 {/* for image  */}
                 <div className="section-hero-image">
                     <picture>
-                        <img src="../../../public/images/hero.svg" alt="hero image" className="hero-img" />
+                        <img src={image} alt="hero image" className="hero-img" />
                     </picture>
                 </div>
             </div>
