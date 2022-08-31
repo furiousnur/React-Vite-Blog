@@ -1,26 +1,62 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {NavLink} from "react-router-dom";
 import styled from "styled-components";
+import { CgMenu, CgCloseR } from "react-icons/cg";
 
 const Navbar = () => {
+    const [openMenu, setOpenMenu] = useState(false);
+    
     return (
         <>
             <Nav>
-                <div className="menuIcon">
+                <div className={openMenu ? "menuIcon active" : "menuIcon"}>
                     <ul className="navbar-list">
                         <li>
-                            <NavLink className="navbar-link" to="/">Home</NavLink> 
+                            <NavLink
+                                className="navbar-link active"
+                                onClick={() => setOpenMenu(false)}
+                                to="/">
+                                Home
+                            </NavLink>
                         </li>
-                        <li> 
-                            <NavLink className="navbar-link" to="/about">About</NavLink> 
+                        <li>
+                            <NavLink
+                                className="navbar-link"
+                                onClick={() => setOpenMenu(false)}
+                                to="/about">
+                                About
+                            </NavLink>
                         </li>
-                        <li>  
-                            <NavLink className="navbar-link" to="/services">Services</NavLink> 
+                        <li>
+                            <NavLink
+                                className="navbar-link"
+                                onClick={() => setOpenMenu(false)}
+                                to="/services">
+                                Services
+                            </NavLink>
                         </li>
-                        <li>   
-                            <NavLink className="navbar-link" to="/contact">Contact</NavLink>
+                        <li>
+                            <NavLink
+                                className="navbar-link"
+                                onClick={() => setOpenMenu(false)}
+                                to="/contact">
+                                Contact
+                            </NavLink>
                         </li>
                     </ul>
+                    {/* //nav icon */}
+                    <div className="mobile-navbar-btn">
+                        <CgMenu
+                            name="menu-outline"
+                            className="mobile-nav-icon"
+                            onClick={() => setOpenMenu(true)}
+                        />
+                        <CgCloseR
+                            name="close-outline"
+                            className="close-outline mobile-nav-icon"
+                            onClick={() => setOpenMenu(false)}
+                        />
+                    </div>
                 </div>
             </Nav>
         </>
@@ -46,10 +82,12 @@ const Nav = styled.nav`
           &:hover,
           &:active {
             color: ${({ theme }) => theme.colors.helper};
+            font-weight: bold;
           }
         }
       }
-    }
+    } 
+    
     .mobile-navbar-btn {
       display: none;
       .close-outline {
