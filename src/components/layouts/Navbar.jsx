@@ -13,7 +13,7 @@ const Navbar = () => {
                     <ul className="navbar-list">
                         <li>
                             <NavLink
-                                className="navbar-link active"
+                                className="navbar-link"
                                 onClick={() => setOpenMenu(false)}
                                 to="/">
                                 Home
@@ -82,12 +82,11 @@ const Nav = styled.nav`
           &:hover,
           &:active {
             color: ${({ theme }) => theme.colors.helper};
-            font-weight: bold;
           }
         }
       }
     } 
-    
+     
     .mobile-navbar-btn {
       display: none;
       .close-outline {

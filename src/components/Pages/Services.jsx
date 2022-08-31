@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useGlobalContext} from "../context/Context.jsx";
 import { NavLink } from "react-router-dom";
 import { Button } from "../style/Button.jsx";
@@ -7,12 +7,20 @@ import styled from "styled-components";
 const Services = () => {
     const {services} = useGlobalContext();
     const [limit, setLimit] = useState(6);
-    
+    const [btnCheck, setBtnCheck] = useState(true);
     const showNext =() =>{
         setLimit(limit+6)
     }
-    
     const limitServices = services.slice(0, limit);
+    const btn = <Button className="btn" onClick={showNext}>Show More</Button>
+    
+    useEffect(() => {
+        if (services.length > limit){
+            setBtnCheck(false)
+        }
+        console.log(btnCheck)
+    }, [limit]);
+    
     
     return (
         <Wrapper className="section">
@@ -37,7 +45,7 @@ const Services = () => {
                 })}
             </div>
             <div className="btn-container grid grid-one-column">
-                <Button className="btn" onClick={showNext}>Show More</Button>
+                {btnCheck ? btn : ""}
             </div>
         </Wrapper>
     );
