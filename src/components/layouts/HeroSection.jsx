@@ -2,10 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import {Button} from "../style/Button.jsx"; 
-// import { useGlobalContext } from "../context";
+import { useGlobalContext } from "../context/Context.jsx";
 
-const HeroSection = ({name, image}) => { 
-    // const { name, image } = useGlobalContext();
+const HeroSection = () => { 
+    const { name, image } = useGlobalContext();
 
     return (
         <Wrapper>
