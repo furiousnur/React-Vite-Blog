@@ -5,6 +5,7 @@ import RoutesIndex from "./components/layouts/RoutesIndex.jsx";
 import {BrowserRouter} from "react-router-dom";
 import {ThemeProvider} from "styled-components";
 import {GlobalStyle} from "./components/style/GlobalStyle";
+import GoToTop from "./components/style/GoToTop.jsx";
 
 const App = () => {
     const theme = {
@@ -30,6 +31,7 @@ const App = () => {
     return (<>
             <ThemeProvider theme={theme}>
                 <GlobalStyle/>
+                <GoToTop/>
                 <BrowserRouter>
                     <Header/>
                     <RoutesIndex/>
