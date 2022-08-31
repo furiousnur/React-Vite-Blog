@@ -3,16 +3,17 @@ import reducer from "./Reducer.jsx";
 
 const AppContext = React.createContext();
 
-const API = "https://thapareactapi.up.railway.app";
+// const API = "https://thapareactapi.up.railway.app";
+const API = "https://dummyjson.com/products";
 
-const intialState = {
+const initialState = {
     name: "",
     image: "",
     services: [],
 };
 
 const AppProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(reducer, intialState);
+    const [state, dispatch] = useReducer(reducer, initialState);
 
     const updateHomePage = () => {
         return dispatch({
@@ -38,8 +39,11 @@ const AppProvider = ({ children }) => {
     const getServices = async (url) => {
         try {
             const res = await fetch(url);
-            const data = await res.json();
-            dispatch({ type: "GET_SERVICES", payload: data });
+            const data = await res.json(); 
+            dispatch({ 
+                type: "GET_SERVICES",
+                payload: data.products
+            });
         } catch (error) {
             console.log(error);
         }
@@ -47,7 +51,7 @@ const AppProvider = ({ children }) => {
 
     // to call the api
     useEffect(() => {
-        getServices(API);
+        getServices(API); 
     }, []);
 
     return (

@@ -4,8 +4,8 @@ import {useGlobalContext} from "../context/Context.jsx";
 
 const Home = () => {
     const { updateHomePage } = useGlobalContext();
-
     useEffect(() => updateHomePage(), []);
+    
     return (
         <>
             <HeroSection />
