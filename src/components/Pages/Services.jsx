@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useGlobalContext} from "../context/Context.jsx";
 import { NavLink } from "react-router-dom";
 import { Button } from "../style/Button.jsx";
@@ -6,12 +6,19 @@ import styled from "styled-components";
 
 const Services = () => {
     const {services} = useGlobalContext();
+    const [limit, setLimit] = useState(6);
+    
+    const showNext =() =>{
+        setLimit(limit+6)
+    }
+    
+    const limitServices = services.slice(0, limit);
     
     return (
         <Wrapper className="section">
             <h2 className="common-heading">Our Services</h2>
             <div className="container grid grid-three-column">
-                {services.map((curElem) => {
+                {limitServices.map((curElem) => {
                     const { id, title, thumbnail, description } = curElem;
                     return (
                         <div key={id} className="card">
@@ -21,13 +28,16 @@ const Services = () => {
                             <div className="card-data">
                                 <h3>{title}</h3>
                                 <p>{description}</p>
-                                <NavLink to="/service">
+                                <NavLink to="/services">
                                     <Button className="btn">Read More</Button>
                                 </NavLink>
                             </div>
                         </div>
                     );
                 })}
+            </div>
+            <div className="btn-container grid grid-one-column">
+                <Button className="btn" onClick={showNext}>Show More</Button>
             </div>
         </Wrapper>
     );

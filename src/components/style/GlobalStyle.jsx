@@ -65,9 +65,14 @@ li {
   max-width: 120rem;
   margin: 0 auto;
 }
+
+.btn-container {
+  max-width: 20rem;
+  margin: 10px auto;
+}
 .grid {
   display: grid;
-  gap: 9rem;
+  gap: 7rem;
 }
 .grid-two-column {
   grid-template-columns: repeat(2, 1fr);
@@ -77,6 +82,9 @@ li {
 }
 .grid-four-column{
    grid-template-columns: 1fr 1.2fr .5fr .8fr ;
+}
+.grid-one-column {
+  grid-template-columns: repeat(1, 1fr);
 }
   .common-heading {
       font-size: 3.8rem;
