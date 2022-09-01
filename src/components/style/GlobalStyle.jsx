@@ -89,18 +89,24 @@ li {
   .common-heading {
       font-size: 3.8rem;
       font-weight: 600;
+      margin-bottom: 5rem; 
+      text-transform: capitalize;
+  }
+  .contact-heading {
+      font-size: 3.8rem;
+      font-weight: 600;
       margin-bottom: 5rem;
       margin-top: 5rem;
       text-transform: capitalize;
-    }
-    input, textarea{
+  }
+  input, textarea{
     max-width: 50rem;
     color: ${({theme}) => theme.colors.black};
     padding: 1.6rem 2.4rem;
     border: 1px solid ${({theme}) => theme.colors.border};
     text-transform: uppercase;
    box-shadow: ${({theme}) => theme.colors.shadowSupport};
-}
+  }
     input[type="submit"]{
     max-width: 16rem;
     margin-top: 2rem;

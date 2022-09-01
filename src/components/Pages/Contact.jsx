@@ -4,6 +4,15 @@ import styled from "styled-components";
 const Contact = () => {
     const Wrapper = styled.section`
     // padding: 9rem 0 5rem 0;
+    span{
+        border: 3px solid rgb(98 84 243);
+        padding: 1rem;
+    }
+    
+    .form-border{
+        border: 3px solid rgb(98 84 243);
+        padding: 2rem;
+    }
     .container {
       margin-top: 6rem;
       text-align: center;
@@ -32,7 +41,7 @@ const Contact = () => {
     return (
         <>
             <Wrapper>
-                <h2 className="common-heading">Feel Free to Contact us</h2>
+                <h2 className="contact-heading"><span>Feel Free to Contact us</span></h2>
 
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233667.82239550783!2d90.2791949819438!3d23.7808874545031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1661968186501!5m2!1sen!2sbd"
@@ -45,10 +54,7 @@ const Contact = () => {
 
                 <div className="container">
                     <div className="contact-form">
-                        <form
-                            action="https://formspree.io/f/mvoygeee"
-                            method="POST"
-                            className="contact-inputs">
+                        <form action="https://formspree.io/f/mvoygeee" method="POST" className="contact-inputs form-border">
                             <input
                                 type="text"
                                 name="username"
@@ -71,7 +77,6 @@ const Contact = () => {
                                 rows="6"
                                 autoComplete="off"
                                 required></textarea>
-
                             <input type="submit" value="send" />
                         </form>
                     </div>

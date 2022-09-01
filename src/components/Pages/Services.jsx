@@ -6,24 +6,16 @@ import styled from "styled-components";
 
 const Services = () => {
     const {services} = useGlobalContext();
-    const [limit, setLimit] = useState(6);
-    const [btnCheck, setBtnCheck] = useState(true);
+    const [limit, setLimit] = useState(6); 
     const showNext =() =>{
         setLimit(limit+6)
     }
-    const limitServices = services.slice(0, limit);
-    const btn = <Button className="btn" onClick={showNext}>Show More</Button>
-    
-    useEffect(() => {
-        if (services.length > limit){
-            setBtnCheck(false)
-        }
-    }, []);
+    const limitServices = services.slice(0, limit); 
     
     
     return (
         <Wrapper className="section">
-            <h2 className="common-heading">Our Services</h2>
+            <h2 className="common-heading"><span>Our Services</span></h2>
             <div className="container grid grid-three-column">
                 {limitServices.map((curElem) => {
                     const { id, title, thumbnail, description } = curElem;
@@ -44,18 +36,22 @@ const Services = () => {
                 })}
             </div>
             <div className="btn-container grid grid-one-column">
-                {btnCheck ? btn : ""}
+                <Button className="btn" onClick={showNext}>Show More</Button>
             </div>
         </Wrapper>
     );
 };
 
 const Wrapper = styled.section`
-  padding: 9rem 0;
+  padding: 5rem 0;
   background-color: ${({ theme }) => theme.colors.servicesBg};
   .container {
     max-width: 120rem;
-  }
+  } 
+  span{
+        border: 3px solid rgb(98 84 243);
+        padding: 1rem;
+    }
   .card {
     border: 0.1rem solid rgb(170 170 170 / 40%);
     .card-data {
