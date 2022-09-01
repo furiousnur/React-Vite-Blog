@@ -1,48 +1,32 @@
 import React from 'react';
-import styled from "styled-components";
+import {ContactWrapper} from "../style/ContactStyle.jsx";
+import { useFormik } from "formik";
+import {ContactSchema} from "../schemas/ContactSchema.jsx";
 
 const Contact = () => {
-    const Wrapper = styled.section`
-    // padding: 9rem 0 5rem 0;
-    span{
-        border: 3px solid rgb(98 84 243);
-        padding: 1rem;
-    }
-    
-    .form-border{
-        border: 3px solid rgb(98 84 243);
-        padding: 2rem;
-    }
-    .container {
-      margin-top: 6rem;
-      text-align: center;
-      .contact-form {
-        max-width: 50rem;
-        margin: auto;
-        .contact-inputs {
-          display: flex;
-          flex-direction: column;
-          gap: 3rem;
-          input[type="submit"] {
-            cursor: pointer;
-            transition: all 0.2s;
-            &:hover {
-              background-color: ${({ theme }) => theme.colors.white};
-              border: 1px solid ${({ theme }) => theme.colors.btn};
-              color: ${({ theme }) => theme.colors.btn};
-              transform: scale(0.9);
-            }
-          }
-        }
-      }
-    }
-  `;
+    const initialValues = {
+        username: "",
+        email: "",
+        message: "", 
+    };
+
+    const { values, handleBlur, handleChange, handleSubmit, errors, touched } =
+        useFormik({
+            initialValues,
+            validationSchema: ContactSchema,
+            validateOnChange: true,
+            validateOnBlur: false,
+            //// By disabling validation onChange and onBlur formik will validate on submit.
+            onSubmit: (values, action) => { 
+                //// to get rid of all the values after submitting the form
+                action.resetForm();
+            },
+        });
     
     return (
         <>
-            <Wrapper>
+            <ContactWrapper>
                 <h2 className="contact-heading"><span>Feel Free to Contact us</span></h2>
-
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233667.82239550783!2d90.2791949819438!3d23.7808874545031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1661968186501!5m2!1sen!2sbd"
                     width="100%"
@@ -54,34 +38,48 @@ const Contact = () => {
 
                 <div className="container">
                     <div className="contact-form">
-                        <form action="https://formspree.io/f/mvoygeee" method="POST" className="contact-inputs form-border">
+                        <form action="https://formspree.io/f/mvoygeee" method="POST" className="contact-inputs form-border" onSubmit={handleSubmit}>
                             <input
                                 type="text"
                                 name="username"
                                 placeholder="username"
                                 autoComplete="off"
-                                required
+                                value={values.name}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
                             />
+                            {touched.username && errors.username ? (
+                                <p className="form-error">{errors.username}</p>
+                            ) : null}
 
                             <input
                                 type="email"
-                                name="Email"
+                                name="email"
                                 placeholder="Email"
                                 autoComplete="off"
-                                required
+                                value={values.email}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
                             />
-
+                            {touched.email && errors.email ? (
+                                <p className="form-error">{errors.email}</p>
+                            ) : null}
                             <textarea
                                 name="message"
                                 cols="30"
                                 rows="6"
                                 autoComplete="off"
-                                required></textarea>
+                                value={values.message}
+                                onChange={handleChange}
+                                onBlur={handleBlur}></textarea>
+                            {touched.message && errors.message ? (
+                                <p className="form-error">{errors.message}</p>
+                            ) : null}
                             <input type="submit" value="send" />
                         </form>
                     </div>
                 </div>
-            </Wrapper>
+            </ContactWrapper>
             );
         </>
     );
