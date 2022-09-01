@@ -16,6 +16,7 @@ const App = () => {
             black: " #212529",
             helper: "#8490ff",
             bg: "rgb(221,240,253)",
+            servicesBg: "rgb(239,239,239)",
             footer_bg: "#0a1435",
             btn: "rgb(98 84 243)",
             border: "rgba(98, 84, 243, 0.5)",

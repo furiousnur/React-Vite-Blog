@@ -89,7 +89,8 @@ li {
   .common-heading {
       font-size: 3.8rem;
       font-weight: 600;
-      margin-bottom: 6rem;
+      margin-bottom: 5rem;
+      margin-top: 5rem;
       text-transform: capitalize;
     }
     input, textarea{

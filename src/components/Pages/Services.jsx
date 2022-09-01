@@ -52,7 +52,7 @@ const Services = () => {
 
 const Wrapper = styled.section`
   padding: 9rem 0;
-  // background-color: ${({ theme }) => theme.colors.bg};
+  background-color: ${({ theme }) => theme.colors.servicesBg};
   .container {
     max-width: 120rem;
   }
