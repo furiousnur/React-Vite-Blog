@@ -18,8 +18,7 @@ const Services = () => {
         if (services.length > limit){
             setBtnCheck(false)
         }
-        console.log(btnCheck)
-    }, [limit]);
+    }, []);
     
     
     return (

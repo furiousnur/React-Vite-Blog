@@ -46,7 +46,7 @@ const Contact = () => {
                 <div className="container">
                     <div className="contact-form">
                         <form
-                            action="https://formspree.io/f/xgedgjkr"
+                            action="https://formspree.io/f/mvoygeee"
                             method="POST"
                             className="contact-inputs">
                             <input
