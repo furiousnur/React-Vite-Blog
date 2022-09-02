@@ -33,14 +33,14 @@ export const Nav = styled.nav`
     .mobile-navbar-btn[name="close-outline"] {
       display: none;
     }
-    @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    @media (max-width: ${({ theme }) => theme.media.mobile}) { 
       .mobile-navbar-btn {
         display: inline-block;
         z-index: 999;
         border: ${({ theme }) => theme.colors.black};
         .mobile-nav-icon {
           font-size: 4.2rem;
-          color: ${({ theme }) => theme.colors.black};
+          color: ${({ theme }) => theme.colors.white};
         }
       }
       /* hide the original nav menu  */
@@ -64,6 +64,7 @@ export const Nav = styled.nav`
             &:link,
             &:visited {
               font-size: 4.2rem;
+              color: ${({ theme }) => theme.colors.black};
             }
             &:hover,
             &:active {

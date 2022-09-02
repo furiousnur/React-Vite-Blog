@@ -7,13 +7,17 @@ import Services from "../Pages/Services.jsx";
 import Error from "../Pages/Error.jsx";
 
 const RoutesIndex = () => {
+    const emptyMt = {
+        marginTop15: "13rem"
+    }
+    
     return (
         <>
             <Routes>
                 <Route path="/" element={<Home />}/>
                 <Route path="/about" element={<About />}/>
-                <Route path="/contact" element={<Contact />}/>
-                <Route path="/services" element={<Services />}/>
+                <Route path="/contact" element={<Contact emptyMt={emptyMt}/>}/>
+                <Route path="/services" element={<Services emptyMt={emptyMt}/>}/>
                 <Route path="*" element={<Error />}/>
             </Routes>
         </>

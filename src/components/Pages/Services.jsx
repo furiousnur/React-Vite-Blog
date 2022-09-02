@@ -4,17 +4,18 @@ import { NavLink } from "react-router-dom";
 import { Button } from "../style/Button.jsx";
 import {ServicesWrapper} from "../style/ServicesStyle.jsx";
 
-const Services = () => {
+const Services = (props) => {
     const {services} = useGlobalContext();
     const [limit, setLimit] = useState(6); 
     const showNext =() =>{
         setLimit(limit+6)
     }
-    const limitServices = services.slice(0, limit); 
-    
+    const limitServices = services.slice(0, limit);
+    const mt15 = props.emptyMt.marginTop15;
     
     return (
         <ServicesWrapper className="section">
+            <div style={{marginTop: mt15}}></div>
             <h2 className="common-heading"><span>Our Services</span></h2>
             <div className="container grid grid-three-column">
                 {limitServices.map((curElem) => {

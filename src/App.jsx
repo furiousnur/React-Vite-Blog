@@ -19,7 +19,7 @@ const App = () => {
             bg: "#0a1435",
             servicesBg: "rgb(239,239,239)",
             footer_bg: "#0a1435",
-            footer_box: "#adadad",
+            footer_box: "#e8e8e8",
             btn: "rgb(98 84 243)",
             border: "rgba(98, 84, 243, 0.5)",
             hr: "#ffffff",

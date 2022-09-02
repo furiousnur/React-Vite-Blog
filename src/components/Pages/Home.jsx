@@ -7,12 +7,14 @@ import Contact from "./Contact.jsx";
 const Home = () => {
     const { updateHomePage } = useGlobalContext();
     useEffect(() => updateHomePage(), []);
-    
+    const emptyMt = {
+        marginTop15: "5rem"
+    }
     return (
         <>
             <HeroSection />
-            <Services/>
-            <Contact/>
+            <Services emptyMt={emptyMt}/>
+            <Contact emptyMt={emptyMt} />
         </>
     );
 };
