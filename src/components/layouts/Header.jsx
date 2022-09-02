@@ -21,7 +21,10 @@ const MainHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  position:fixed;
+  width:100%; 
+  z-index: 999;
   .logo {
     height: auto;
     max-width: 30%;
