@@ -12,6 +12,14 @@ const Services = (props) => {
     }
     const limitServices = services.slice(0, limit);
     const mt15 = props.emptyMt.marginTop15;
+
+    const truncateString = (str, num)=>{
+        if (str.length > num){
+            return str.slice(0, num) + "...";
+        }else{
+            return str;
+        }
+    }
     
     return (
         <ServicesWrapper className="section">
@@ -27,8 +35,8 @@ const Services = (props) => {
                             </figure>
                             <div className="card-data">
                                 <h3>{title}</h3>
-                                <p>{description}</p>
-                                <NavLink to="/services">
+                                <p>{truncateString(description, 30)}</p>
+                                <NavLink to={title} state={{id, title, description, thumbnail}}>
                                     <Button className="btn">Read More</Button>
                                 </NavLink>
                             </div>
