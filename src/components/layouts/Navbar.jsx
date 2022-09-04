@@ -2,9 +2,12 @@ import React, {useState} from 'react';
 import {NavLink} from "react-router-dom"; 
 import { CgMenu, CgCloseR } from "react-icons/cg";
 import {Nav} from "../style/NavWrapper.jsx";
+import { useAuth0 } from "@auth0/auth0-react";
+import {Button} from "../style/Button.jsx";
 
 const Navbar = () => {
     const [openMenu, setOpenMenu] = useState(false);
+    const {loginWithRedirect, logout, isAuthenticated} = useAuth0();
     
     return (
         <>
@@ -43,6 +46,16 @@ const Navbar = () => {
                                 Contact
                             </NavLink>
                         </li>
+                        { isAuthenticated ? <li>
+                                <Button onClick={() => logout({ returnTo: window.location.origin })}>
+                                    Log Out
+                                </Button>
+                            </li>
+                                :
+                            <li>
+                                return <Button onClick={() => loginWithRedirect()}>Log In</Button>;
+                            </li>    
+                        }
                     </ul>
                     {/* //nav icon */}
                     <div className="mobile-navbar-btn">

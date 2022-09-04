@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Nav = styled.nav`
     .navbar-list {
+      align-items: center;
       display: flex;
       gap: 4.8rem;
       li {
