@@ -7,7 +7,7 @@ import {Button} from "../style/Button.jsx";
 
 const Navbar = () => {
     const [openMenu, setOpenMenu] = useState(false);
-    const {loginWithRedirect, logout, isAuthenticated} = useAuth0();
+    const {loginWithRedirect, logout, isAuthenticated, user} = useAuth0();
     
     return (
         <>
@@ -46,6 +46,9 @@ const Navbar = () => {
                                 Contact
                             </NavLink>
                         </li>
+                        {isAuthenticated && <li>
+                            <h3 style={{color: "white"}}>{user.name}</h3>
+                        </li>}
                         { isAuthenticated ? <li>
                                 <Button onClick={() => logout({ returnTo: window.location.origin })}>
                                     Log Out
